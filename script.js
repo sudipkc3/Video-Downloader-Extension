@@ -1,34 +1,38 @@
+// Listener for when the extension is installed
 chrome.runtime.onInstalled.addListener(() => {
     console.log("YouTube Downloader Extension Installed");
-  });
-
-chrome.action.onClicked.addListener(async (tab) => {
-  try {
-    let [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    let videoUrl = currentTab.url;
-
-    if (videoUrl.includes("youtube.com/watch") || videoUrl.includes("youtu.be/")) {
-      await chrome.scripting.executeScript({
-        target: { tabId: currentTab.id },
-        func: () => {
-          const link = window.location.href;
-          navigator.clipboard.writeText(link)
-            .then(() => alert("Video URL copied!"))
-            .catch(err => console.error("Failed to copy:", err));
-        },
-      });
-    } else {
-      chrome.scripting.executeScript({
-        target: { tabId: currentTab.id },
-        func: () => alert("Please open a YouTube video page."),
-      });
-    }
-
-  } catch (error) {
-    console.error("Error:", error);
-  }
 });
 
+// Listener for when the extension icon is clicked
+chrome.action.onClicked.addListener(async (tab) => {
+    try {
+        let [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        let videoUrl = currentTab.url;
+
+        // Check if the current tab is a YouTube video page
+        if (videoUrl.includes("youtube.com/watch") || videoUrl.includes("youtu.be/")) {
+            await chrome.scripting.executeScript({
+                target: { tabId: currentTab.id },
+                func: () => {
+                    const link = window.location.href;
+                    navigator.clipboard.writeText(link)
+                        .then(() => alert("Video URL copied!"))
+                        .catch(err => console.error("Failed to copy:", err));
+                },
+            });
+        } else {
+            chrome.scripting.executeScript({
+                target: { tabId: currentTab.id },
+                func: () => alert("Please open a YouTube video page."),
+            });
+        }
+
+    } catch (error) {
+        console.error("Error:", error);
+    }
+});
+
+// Listener for when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function() {
 
     // Function to load download history
@@ -75,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
         let videoUrl = currentTab.url;
 
+        // Check if the current tab is a YouTube video page
         if (videoUrl.includes("youtube.com/watch") || videoUrl.includes("youtu.be/")) {
             const video = {
                 url: videoUrl,
@@ -100,4 +105,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load the download history on page load
     loadDownloadHistory();
+
 });
