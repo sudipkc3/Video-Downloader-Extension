@@ -1,8 +1,5 @@
 
 <h1 align="center">
-  <br>
-  <a href="https://www.pngwing.com/en/free-png-abxwq"><img src="https://www.pngwing.com/en/free-png-abxwq" alt="Video Downloader" width="200"></a>
-  <br>
   Video Downloader
   <br>
 </h1>
