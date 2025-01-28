@@ -21,13 +21,13 @@ You can [download](#) the latest installable version of Video Downloader extensi
 
 ## Emailware
 
-Video Downloader is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <sudipkc289@gmail.com> or <kcsudip.com.np> about anything you'd want to say about this software. I'd really appreciate it!
+If you liked using this app or it has helped you in any way, I'd like you send me an email at <sudipkc289@gmail.com> or <kcsudip.com.np> about anything you'd want to say about this software. I'd really appreciate it!
 
 ## Credits
 
 This software uses the following Websites and tools:
 
-- [yts]([http://electron.atom.io/](https://www.yt1s.com/en2aef))
+- [yts](https://www.yt1s.com/en2aef)
 - [HTML](#)
 - [CSS](#)
 - [JS](#)
@@ -36,6 +36,5 @@ This software uses the following Websites and tools:
 
 ## You may also like...
 
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
+- [Video Downloader](https://github.com/sudipkc3/video-downloader) - A Video Downloader / Python
 
